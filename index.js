@@ -218,9 +218,17 @@ Use the getAverageWordLength function below to do the following:
 
     For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.     
 */
-
-function getAverageWordLength(/*code here*/){
-    /*code here*/
+function countWords(strInput){
+    return strInput.split(' ').length;
+}
+function getAverageWordLength(arr){
+    let sum = 0;
+    let count = 0;
+    for(let i = 0; i < arr.length; i++){
+        sum += countWords(arr[i]);
+        count++;
+    }
+    return sum/count;
 }
 
 
@@ -237,8 +245,13 @@ Use the getRandomFlavors function and new arrays below to do the following:
 */
 
 
-function getRandomFlavors(/*code here*/){
-    /*code here*/
+function getRandomFlavors(arr1,arr2,arr3,arr4){
+    let allArr = arr1.concat(arr2,arr3,arr4);
+    let ret = []
+    for(let i = 0; i < allArr.length; i++){
+        ret.push(allArr[Math.floor(Math.random()*(allArr.length-1))]);
+    }
+    return ret;
 }
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
@@ -267,7 +280,7 @@ const newFlavors = [
     "Rainbow Sherbet",
     "Rainbow Swirl"
 ] 
-
+// console.log(getAverageWordLength(newFlavors));
 const seasonalFlavors = [
     "America's Birthday Cake",
     "Baseball Nut®",
@@ -321,7 +334,7 @@ const regionalFlavors = [
     "Chocolate Chocolate Chip Cheesecake",
     "Caramel 'n' Cookies"
 ]
-
+console.log(getRandomFlavors(newFlavors,seasonalFlavors,regionalFlavors,originalFlavors));
 
 
 /* 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 */
